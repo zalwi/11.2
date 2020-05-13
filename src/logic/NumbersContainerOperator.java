@@ -47,15 +47,16 @@ public class NumbersContainerOperator {
     }
 
     private void showReverseNumbers() {
-        ArrayList reversedArray = numbersContainer.getNumbers();
+        ArrayList reversedArray = new ArrayList();
+        reversedArray.addAll(numbersContainer.getNumbers());
         Collections.reverse(reversedArray);
         System.out.println(reversedArray.toString());
     }
 
     private String createSumString() {
         String tmpString = "";
-        for (int i = (numbersContainer.getNumbers().size()-1); i >= 0 ; i--) {
-            if (i == (numbersContainer.getNumbers().size()-1)) tmpString += numbersContainer.getNumbers().get(i);
+        for (int i = 0; i < numbersContainer.getNumbers().size() ; i++) {
+            if (i == 0) tmpString += numbersContainer.getNumbers().get(i);
             else tmpString += "+" + numbersContainer.getNumbers().get(i);
         }
         tmpString += "=" + sumOfNumbers();
