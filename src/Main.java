@@ -1,9 +1,8 @@
-import data.NumbersContainer;
-import logic.NumbersContainerOperator;
+import logic.PositiveNumbers;
 
 public class Main {
     public static void main(String[] args) {
-        NumbersContainerOperator positiveNumbers = new NumbersContainerOperator();
+        PositiveNumbers positiveNumbers = new PositiveNumbers();
         positiveNumbers.runNumberReader();
     }
 }

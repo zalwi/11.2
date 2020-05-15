@@ -1,16 +1,14 @@
 package logic;
 
-import data.NumbersContainer;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class NumbersContainerOperator {
-    private NumbersContainer numbersContainer;
+public class PositiveNumbers {
+    ArrayList<Double> numbers;
 
-    public NumbersContainerOperator() {
-        this.numbersContainer = new NumbersContainer();
+    public PositiveNumbers() {
+        this.numbers = new ArrayList<>();;
     }
 
     public void runNumberReader() {
@@ -22,7 +20,7 @@ public class NumbersContainerOperator {
             if (checkIfInputIsNumber(numberString)) {
                 double tmpNumber = Double.parseDouble(numberString);
                 if (checkIfIsPositiveNumber(tmpNumber)) {
-                    numbersContainer.addNewNumber(tmpNumber);
+                    numbers.add(tmpNumber);
                 } else {
                     loop = false;
                 }
@@ -41,23 +39,23 @@ public class NumbersContainerOperator {
     }
 
     private void showMinMaxOfList(){
-        ArrayList tmpArray = numbersContainer.getNumbers();
+        ArrayList tmpArray = numbers;
         System.out.println("Minimum: " + Collections.min(tmpArray));
         System.out.println("Maximum: " + Collections.max(tmpArray));
     }
 
     private void showReverseNumbers() {
         ArrayList reversedArray = new ArrayList();
-        reversedArray.addAll(numbersContainer.getNumbers());
+        reversedArray.addAll(numbers);
         Collections.reverse(reversedArray);
         System.out.println(reversedArray.toString());
     }
 
     private String createSumString() {
         String tmpString = "";
-        for (int i = 0; i < numbersContainer.getNumbers().size() ; i++) {
-            if (i == 0) tmpString += numbersContainer.getNumbers().get(i);
-            else tmpString += "+" + numbersContainer.getNumbers().get(i);
+        for (int i = 0; i < numbers.size() ; i++) {
+            if (i == 0) tmpString += numbers.get(i);
+            else tmpString += "+" + numbers.get(i);
         }
         tmpString += "=" + sumOfNumbers();
         return tmpString;
@@ -65,7 +63,7 @@ public class NumbersContainerOperator {
 
     private double sumOfNumbers() {
         double sum = 0;
-        for (double number : numbersContainer.getNumbers()) {
+        for (double number : numbers) {
             sum += number;
         }
         return sum;
